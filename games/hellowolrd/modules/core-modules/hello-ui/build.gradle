@@ -1,6 +1,5 @@
-type = 'swf'
-mainClass = 'HelloWorldDisplay.as'
+type = 'swc'
 
 dependencies {
-	merged project(':domain')
+	merged project(':core-modules:domain')
 }

@@ -1,0 +1,4 @@
+include 'core-modules:domain', 
+		'core-modules:hello-ui', 
+		'platform-depended:web',
+		'platform-depended:air'

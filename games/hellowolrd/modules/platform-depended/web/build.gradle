@@ -1,0 +1,7 @@
+type = 'swf'
+
+mainClass = 'WebContainer.as'
+
+dependencies {
+	merged project(':core-modules:hello-ui')
+}

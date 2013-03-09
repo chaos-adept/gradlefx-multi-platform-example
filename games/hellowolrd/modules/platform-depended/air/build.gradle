@@ -1,0 +1,13 @@
+type = 'air'
+
+mainClass = 'Activity.as'
+
+air {
+	keystore = 'air-single-project.p12'
+	storepass = 'gradlefx'
+	includeFileTrees = [fileTree(dir: 'src/main/actionscript/', include: 'assets/appIcon.png')]
+} 
+
+dependencies {
+	merged project(':core-modules:hello-ui')
+}
