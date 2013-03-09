@@ -1,0 +1,12 @@
+apply plugin: "java"
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+	compile gradleApi()
+	//classpath group: 'org.gradlefx', name: 'gradlefx', version: '0.6.4'
+	runtime subprojects.collect { project(it.path) }
+}
