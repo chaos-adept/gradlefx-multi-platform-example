@@ -1,5 +1,5 @@
 type = 'swc'
 
 dependencies {
-	merged project(':core-modules:domain')
+	merged project(':games:helloworld:modules:core-modules:domain')
 }
