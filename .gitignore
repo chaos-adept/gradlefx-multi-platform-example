@@ -1,6 +1,9 @@
 # gradle #
 ###################
 .gradle
+.gradle/
+build
+build/
 
 # settings #
 ###################
