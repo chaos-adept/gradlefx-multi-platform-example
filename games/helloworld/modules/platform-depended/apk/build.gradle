@@ -1,0 +1,59 @@
+import org.gradlefx.conventions.FlexType
+
+type = 'air'
+
+frameworkLinkage = "none"
+
+mainClass = 'Activity.as'
+
+air {
+	applicationDescriptor = 'src/main/actionscript/apk.xml'
+	keystore = 'apk.p12'
+	storepass = 'gradlefx'
+	includeFileTrees = [fileTree(dir: 'src/main/actionscript/', include: 'assets/appIcon.png')]
+} 
+
+tasks.customAdtTask {
+	addArg '-package'
+	addArg '-target'
+	addArg 'apk'
+
+    addArgs "-storetype",
+            "pkcs12",
+            "-keystore",
+            air.keystore,
+            "-storepass",
+            air.storepass
+
+    addArgs project.file(project.buildDir.name + '/' + flexConvention.output).absolutePath
+
+    addArgs project.file(flexConvention.air.applicationDescriptor)
+
+    addArgs project.file("${project.buildDir}/${flexConvention.output}.${FlexType.swf}")
+
+    air.includeFileTrees.each { ConfigurableFileTree fileTree ->
+        addArgs "-C"
+        addArgs fileTree.dir.absolutePath
+
+        fileTree.visit { FileTreeElement file ->
+            if (!file.isDirectory()) {
+                addArgs file.relativePath
+            }
+        }
+    }
+}
+
+task installApp(type:org.gradlefx.tasks.AdtTask) {
+    addArgs "-installApp",
+            "-platform",
+            "android",
+            "-platformsdk",
+            "C:\\develop-tools\\sdk\\android_sdk\\adt-bundle-windows-x86_64\\sdk",
+            "-device", "HT164T402188",
+            "-package", project.file(project.buildDir.name + '/' + flexConvention.output).absolutePath + ".apk"
+}
+
+
+dependencies {
+	merged project(':games:helloworld:modules:core-modules:hello-ui')
+}
