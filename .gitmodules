@@ -1,0 +1,3 @@
+[submodule "games/miner"]
+	path = games/miner
+	url = git@github.com:chaos-adept/Miner.git
