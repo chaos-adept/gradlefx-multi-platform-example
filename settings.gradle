@@ -1,0 +1,4 @@
+include 'games:hellowolrd:modules:core-modules:domain', 
+		'games:hellowolrd:modules:core-modules:hello-ui', 
+		'games:hellowolrd:modules:platform-depended:web',
+		'games:hellowolrd:modules:platform-depended:air'

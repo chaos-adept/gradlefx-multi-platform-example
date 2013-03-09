@@ -9,5 +9,5 @@ air {
 } 
 
 dependencies {
-	merged project(':core-modules:hello-ui')
+	merged project(':games:helloworld:modules:core-modules:hello-ui')
 }
