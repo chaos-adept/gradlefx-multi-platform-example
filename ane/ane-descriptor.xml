@@ -15,9 +15,9 @@
             </applicationDeployment> 
         </platform>  -->
         <!---->
-		<!--
+		
         <platform name="default"> 
             <applicationDeployment/> 
-        </platform>   -->
+        </platform>
     </platforms> 
 </extension>

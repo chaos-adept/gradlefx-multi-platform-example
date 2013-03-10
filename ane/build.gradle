@@ -15,6 +15,16 @@ task('prepareApi') << {
     } }
 }
 
+task('prepareDefaultApi') << {
+	def defaultApiLibPath = "${project(':ane:default-helloworld-api').buildDir}/default-helloworld-api.swc"
+    zipTree(defaultApiLibPath).each { file -> if (file.name == "library.swf") {
+        copy {
+            from file.path
+            into "${buildDir}/default/"
+        }
+    } }
+}
+
 task('prepareNativeLib') {
     ext.android_lib_project = project(":ane:android-helloworld")
     ext.android_lib_path = "${android_lib_project.buildDir}/libs/android-helloworld-1.0.jar"
@@ -60,6 +70,7 @@ task('packageAne') << {
 	buildDir.mkdirs();
     addArgs "-package", "-target", "ane", "${buildDir}/helloworld.ane", "ane-descriptor.xml", "-swc", apiLibPath
     addArgs "-platform", "Android-ARM", "-C", "${buildDir}/Android-ARM", "."
+    addArgs "-platform", "default", "-C", "${buildDir}/default", "."
     ant.java(jar: FLEXSDK_HOME + '/lib/adt.jar',
             fork: true,
             resultproperty: ANT_RESULT_PROPERTY,
@@ -77,6 +88,7 @@ task('packageAne') << {
 }
 
 tasks.packageAne.dependsOn tasks.prepareApi
+tasks.packageAne.dependsOn tasks.prepareDefaultApi
 tasks.packageAne.dependsOn tasks.prepareNativeLib
 
 task('package') {

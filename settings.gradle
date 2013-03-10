@@ -7,4 +7,5 @@ include 'games:helloworld:modules:core-modules:domain',
 		'ane:flash-licensing-ane-wrapper',
 		'ane:android-helloworld',
 		'ane:android-helloworld-api',
+		'ane:default-helloworld-api',
 		'ane'
