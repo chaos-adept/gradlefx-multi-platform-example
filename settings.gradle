@@ -5,4 +5,6 @@ include 'games:helloworld:modules:core-modules:domain',
 		'games:helloworld:modules:platform-depended:apk',
 		'ane:android-licensing',
 		'ane:flash-licensing-ane-wrapper',
+		'ane:android-helloworld',
+		'ane:android-helloworld-api',
 		'ane'

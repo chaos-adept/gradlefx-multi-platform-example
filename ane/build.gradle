@@ -1,7 +1,10 @@
 ext.FLEXSDK_HOME = System.getenv('FLEX_HOME')
 
 
-ext.apiLibPath = "${project(':ane:flash-licensing-ane-wrapper').buildDir}/flash-licensing-ane-wrapper.swc"
+ext.aneApiProjectName = ':ane:android-helloworld-api'
+ext.aneApiProject = project(aneApiProjectName)
+
+ext.apiLibPath = "${aneApiProject.buildDir}/android-helloworld-api.swc"
 
 task('prepareApi') << {
     zipTree(apiLibPath.toString()).each { file -> if (file.name == "library.swf") {
@@ -13,22 +16,19 @@ task('prepareApi') << {
 }
 
 task('prepareNativeLib') {
-    ext.android_lib_project = project(":ane:android-licensing")
-    ext.android_lib_path = "${android_lib_project.buildDir}/libs/android-licensing-1.0.jar"
+    ext.android_lib_project = project(":ane:android-helloworld")
+    ext.android_lib_path = "${android_lib_project.buildDir}/libs/android-helloworld-1.0.jar"
+	
     inputs.file file(android_lib_path)
     outputs.file file("${buildDir}/Android-ARM/")
 }
 
 tasks.prepareNativeLib << {
-
-
-
     copy {
         from android_lib_path
         into "${buildDir}/Android-ARM/"
     }
 }
-
 
 
 task('packageAne') << {
@@ -56,7 +56,9 @@ task('packageAne') << {
         println antOutput
     }
 
-    addArgs "-package", "-target", "ane", "${buildDir}/Licensing.ane", "ane-descriptor.xml", "-swc", apiLibPath
+	
+	buildDir.mkdirs();
+    addArgs "-package", "-target", "ane", "${buildDir}/helloworld.ane", "ane-descriptor.xml", "-swc", apiLibPath
     addArgs "-platform", "Android-ARM", "-C", "${buildDir}/Android-ARM", "."
     ant.java(jar: FLEXSDK_HOME + '/lib/adt.jar',
             fork: true,
@@ -72,6 +74,16 @@ task('packageAne') << {
 
     showAntOutput ant.properties[ANT_OUTPUT_PROPERTY]
 
+}
+
+tasks.packageAne.dependsOn tasks.prepareApi
+tasks.packageAne.dependsOn tasks.prepareNativeLib
+
+task('package') {
+	dependsOn packageAne
+}
+
+tasks.package << {
 }
 
 dependencies {
