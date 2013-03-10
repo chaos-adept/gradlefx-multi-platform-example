@@ -2,4 +2,6 @@ include 'games:helloworld:modules:core-modules:domain',
 		'games:helloworld:modules:core-modules:hello-ui', 
 		'games:helloworld:modules:platform-depended:web',
 		'games:helloworld:modules:platform-depended:air',
-		'games:helloworld:modules:platform-depended:apk'
+		'games:helloworld:modules:platform-depended:apk',
+		'ane:android-licensing',
+		'ane:flash-licensing-ane-wrapper'

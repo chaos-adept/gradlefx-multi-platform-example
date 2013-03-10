@@ -1,0 +1,7 @@
+apply plugin: 'gradlefx'
+
+type = 'swc'
+
+frameworkLinkage = 'external'
+
+additionalCompilerOptions = ["+configname=air"]
