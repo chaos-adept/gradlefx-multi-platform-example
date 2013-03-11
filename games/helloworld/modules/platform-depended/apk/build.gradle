@@ -6,6 +6,7 @@ mainClass = 'Activity.as'
 
 airMobile {
 	target = 'apk'
+	extensionDir = 'ane'
 	air {
 		applicationDescriptor = 'src/main/actionscript/apk.xml'
 		keystore = 'apk.p12'
