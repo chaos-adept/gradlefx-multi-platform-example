@@ -1,18 +1,19 @@
-import org.gradlefx.conventions.FlexType
-
-type = 'air'
+type = 'mobile'
 
 frameworkLinkage = "none"
 
 mainClass = 'Activity.as'
 
-air {
-	applicationDescriptor = 'src/main/actionscript/apk.xml'
-	keystore = 'apk.p12'
-	storepass = 'gradlefx'
-	includeFileTrees = [fileTree(dir: 'src/main/actionscript/', include: 'assets/appIcon.png')]
+airMobile {
+	target = 'apk'
+	air {
+		applicationDescriptor = 'src/main/actionscript/apk.xml'
+		keystore = 'apk.p12'
+		storepass = 'gradlefx'
+		includeFileTrees = [fileTree(dir: 'src/main/actionscript/', include: 'assets/appIcon.png')]	
+	}
 } 
-
+   /*
 tasks.customAdtTask {
 	addArg '-package'
 	addArg '-target'
@@ -41,7 +42,7 @@ tasks.customAdtTask {
             }
         }
     }
-}
+}    */
 
 task installApp(type:org.gradlefx.tasks.AdtTask) {
     addArgs "-installApp",
