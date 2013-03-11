@@ -1,6 +1,6 @@
 [submodule "games/miner"]
 	path = games/miner
-	url = git@github.com:chaos-adept/Miner.git
+	url = https://github.com/chaos-adept/Miner.git
 [submodule "buildSrc/gradlefx"]
 	path = buildSrc/gradlefx
-	url = git@github.com:chaos-adept/GradleFx.git
+	url = https://github.com/chaos-adept/GradleFx.git
