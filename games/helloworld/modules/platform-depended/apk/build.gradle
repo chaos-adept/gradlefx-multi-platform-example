@@ -6,7 +6,9 @@ mainClass = 'Activity.as'
 
 airMobile {
 	target = 'apk'
-	extensionDir = 'ane'
+	extensionDir = '../ane'
+	platformSdk = "C:\\develop-tools\\sdk\\android_sdk\\adt-bundle-windows-x86_64\\sdk"
+	targetDevice = "HT164T402188"
 	air {
         packageWorkDir "${project.buildDir}"
 		applicationDescriptor = 'src/main/actionscript/apk.xml'
@@ -46,7 +48,7 @@ tasks.customAdtTask {
         }
     }
 }    */
-
+/*
 task installApp(type:org.gradlefx.tasks.AdtTask) {
     addArgs "-installApp",
             "-platform",
@@ -55,9 +57,10 @@ task installApp(type:org.gradlefx.tasks.AdtTask) {
             "C:\\develop-tools\\sdk\\android_sdk\\adt-bundle-windows-x86_64\\sdk",
             "-device", "HT164T402188",
             "-package", project.file(project.buildDir.name + '/' + flexConvention.output).absolutePath + ".apk"
-}
+}*/
 
 
 dependencies {
 	merged project(':games:helloworld:modules:core-modules:hello-ui')
+	external files('../ane/default-helloworld-api.swc')
 }
