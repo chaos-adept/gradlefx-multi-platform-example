@@ -8,10 +8,12 @@ airMobile {
 	target = 'apk'
 	extensionDir = 'ane'
 	air {
+        packageWorkDir "${project.buildDir}"
 		applicationDescriptor = 'src/main/actionscript/apk.xml'
 		keystore = 'apk.p12'
 		storepass = 'gradlefx'
-		includeFileTrees = [fileTree(dir: 'src/main/actionscript/', include: 'assets/appIcon.png')]	
+		includeFileTrees = [fileTree(dir: 'src/main/actionscript/', include: 'assets/appIcon.png'),
+                            fileTree(dir: buildDir, include : 'apk.swf')]
 	}
 } 
    /*
