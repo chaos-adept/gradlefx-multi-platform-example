@@ -1,6 +1,6 @@
 subprojects {
 ext.FLEXSDK_HOME = System.getenv('FLEX_HOME')
-
+	/*
 	ext.apiLibPath = "common-api/build/common-api.swc"
 	ext.defaultApiLibPath = "default-lib/build/default-lib.swc"
 	ext.android_lib_path = "android-lib/build/libs"	
@@ -93,6 +93,9 @@ ext.FLEXSDK_HOME = System.getenv('FLEX_HOME')
 	gradle.projectsEvaluated {
 		tasks.packageAne.dependsOn(subprojects.build)
 	} 		
+	*/
+	
+	
 	
 	/*
 	task('package') {
