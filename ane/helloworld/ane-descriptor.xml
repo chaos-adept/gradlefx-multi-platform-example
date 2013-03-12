@@ -4,7 +4,7 @@
     <platforms> 
         <platform name="Android-ARM"> 
             <applicationDeployment> 
-                <nativeLibrary>android-helloworld-1.0.jar</nativeLibrary>
+                <nativeLibrary>android-helloworld-lib-1.0.jar</nativeLibrary>
                 <initializer>com.chaoslabgames.helloworld.HelloWorldExtension</initializer>
             </applicationDeployment> 
         </platform> 

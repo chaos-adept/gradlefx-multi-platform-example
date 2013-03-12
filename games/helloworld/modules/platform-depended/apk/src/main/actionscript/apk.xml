@@ -258,4 +258,8 @@
         <!--<colorDepth></colorDepth>-->
     </android>
 
+	<extensions>
+		<extensionID>com.chaoslabgames.helloworld</extensionID>
+	</extensions>	
+	
 </application>

@@ -1,13 +1,16 @@
 type = 'air'
 
+frameworkLinkage = "none"
+
 mainClass = 'Activity.as'
 
 air {
-	keystore = 'air-single-project.p12'
-	storepass = 'gradlefx'
-	includeFileTrees = [fileTree(dir: 'src/main/actionscript/', include: 'assets/appIcon.png')]
-} 
+		keystore = 'air-single-project.p12'
+		storepass = 'gradlefx'
+		includeFileTrees = [fileTree(dir: 'src/main/actionscript/', include: 'assets/appIcon.png')]
+}
 
 dependencies {
 	merged project(':games:helloworld:modules:core-modules:hello-ui')
+	//merged files('../ane/default-helloworld-api.swc')
 }
