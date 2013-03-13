@@ -6,7 +6,7 @@ mainClass = 'Activity.as'
 
 airMobile {
 	target = 'apk'
-	extensionDir = '../ane'
+	extensionDir = project(':ane:licensing').buildDir
 	platformSdk = "C:\\develop-tools\\sdk\\android_sdk\\adt-bundle-windows-x86_64\\sdk"
 	targetDevice = "HT164T402188"
 	air {
@@ -62,5 +62,5 @@ task installApp(type:org.gradlefx.tasks.AdtTask) {
 
 dependencies {
 	merged project(':games:helloworld:modules:core-modules:hello-ui')
-	external files('../ane/default-helloworld-api.swc')
+	external project(':ane:licensing:default-lib')
 }
