@@ -7,13 +7,13 @@ mainClass = 'Activity.as'
 airMobile {
 	target = 'apk'
 	extensionDir = project(':ane:licensing').buildDir
-	platformSdk = "C:\\develop-tools\\sdk\\android_sdk\\adt-bundle-windows-x86_64\\sdk"
+	platformSdk = "C:\\develop-tools\\sdk\\android_sdk\\adt-bundle-windows-x86_64-20130219\\sdk"
 	targetDevice = "HT164T402188"
 	air {
         packageWorkDir "${project.buildDir}"
 		applicationDescriptor = 'src/main/actionscript/apk.xml'
 		keystore = 'apk.p12'
-		storepass = 'gradlefx'
+		storepass = 'apk123'
 		includeFileTrees = [fileTree(dir: 'src/main/actionscript/', include: 'assets/appIcon.png'),
                             fileTree(dir: buildDir, include : 'apk.swf')]
 	}

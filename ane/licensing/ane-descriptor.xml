@@ -1,11 +1,11 @@
 <extension xmlns="http://ns.adobe.com/air/extension/3.1"> 
-    <id>com.chaoslabgames.helloworld</id> 
+    <id>com.adobe.air.sampleextensions.android.licensing</id> 
     <versionNumber>0.0.1</versionNumber> 
     <platforms> 
         <platform name="Android-ARM"> 
             <applicationDeployment> 
                 <nativeLibrary>android-lib-1.0.jar</nativeLibrary>
-                <initializer>com.chaoslabgames.helloworld.HelloWorldExtension</initializer>
+                <initializer>com.adobe.air.sampleextensions.android.licensing.AndroidLicensingExtension</initializer>
             </applicationDeployment> 
         </platform> 
         <!-- <platform name="iPhone-ARM"> 

@@ -12,7 +12,7 @@
 
     <!-- A universally unique application identifier. Must be unique across all AIR applications.
          Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
-    <id>helloworld</id>
+    <id>com.chaoslabgames.test.lic</id>
 
     <!-- Used as the filename for the application. Required. -->
     <filename>helloworld</filename>
@@ -229,6 +229,7 @@
         <manifestAdditions>
             <![CDATA[
             <manifest android:installLocation="auto">
+				<uses-permission android:name="com.android.vending.CHECK_LICENSE"/>
                 <!--<uses-permission android:name="android.permission.INTERNET"/>-->
                 <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
                 <!--<uses-permission android:name="android.permission.READ_PHONE_STATE"/>-->
@@ -257,9 +258,15 @@
         <!-- Color depth for the app (either "32bit" or "16bit"). Optional. Default 16bit before namespace 3.0, 32bit after -->
         <!--<colorDepth></colorDepth>-->
     </android>
-
+<!--
 	<extensions>
 		<extensionID>com.chaoslabgames.helloworld</extensionID>
 	</extensions>	
+-->
+
+    <extensions>
+        <extensionID>com.adobe.air.sampleextensions.android.licensing</extensionID>
+    </extensions>
+
 	
 </application>
