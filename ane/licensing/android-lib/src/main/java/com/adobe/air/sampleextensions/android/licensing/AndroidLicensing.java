@@ -13,6 +13,7 @@
 
 package com.adobe.air.sampleextensions.android.licensing;
 
+import android.util.Log;
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
 import com.adobe.fre.FREInvalidObjectException;
@@ -20,10 +21,7 @@ import com.adobe.fre.FREObject;
 import com.adobe.fre.FRETypeMismatchException;
 import com.adobe.fre.FREWrongThreadException;
 
-import com.android.vending.licensing.AESObfuscator;
-import com.android.vending.licensing.LicenseChecker;
-import com.android.vending.licensing.LicenseCheckerCallback;
-import com.android.vending.licensing.ServerManagedPolicy;
+import com.android.vending.licensing.*;
 
 import android.app.Activity;
 import android.content.Context;
@@ -79,6 +77,7 @@ public class AndroidLicensing implements FREFunction  {
 	 */
 	public void checkLicense( FREContext freContext, Context context, String publicKey )
 	{
+
 		// This sample code uses Secure.ANDROID_ID only for device identification. Strenthen this string by using as many device specific
 		// string so as to make it as unique as possible as this is used for obfuscating the server response.
 			
@@ -93,8 +92,12 @@ public class AndroidLicensing implements FREFunction  {
 		// be used he needs to replace  the "ServerManagedPolicy" with the policy name with any other policy, if required. 
 		// ServerManagedPolicy is defined in License Verification Library (LVL) provided by android. 
 
-		ServerManagedPolicy policy = new ServerManagedPolicy(context, new AESObfuscator(SALT, context.getPackageName(), deviceId));
-		
+        Policy policy = new ServerManagedPolicy(context, new AESObfuscator(SALT, context.getPackageName(), deviceId));
+        //Policy policy = new StrictPolicy();
+
+        Log.d("license", "policy " + policy.getClass());
+        Log.d("license", "checkLicense:" + publicKey);
+
 		mChecker = new LicenseChecker( context, policy, publicKey);
 		mChecker.checkAccess(mLicenseCheckerCallback);
 	}

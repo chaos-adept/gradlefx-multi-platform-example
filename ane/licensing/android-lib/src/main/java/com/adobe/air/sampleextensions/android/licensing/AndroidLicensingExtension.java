@@ -13,6 +13,7 @@
 
 package com.adobe.air.sampleextensions.android.licensing;
 
+import android.util.Log;
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 
@@ -27,11 +28,12 @@ public class AndroidLicensingExtension implements FREExtension
  	 */  
 	public void initialize( )
 	{
-
+        Log.d("license", "initialize");
 		//System.out.println("**** InitializeExtension:initialize");
 	}
 	public void finalize( )
 	{
+        Log.d("license", "finalize");
 		//System.out.println("**** InitializeExtension:finalize");
 	}
 	public FREContext createContext( String extId )
@@ -42,7 +44,7 @@ public class AndroidLicensingExtension implements FREExtension
 	 */
 		
 		//System.out.println("**** InitializeExtension:createContext");
-		
+        Log.d("license", "createContext");
 		return new AndroidLicensingExtensionContext();
 	}
 	@Override
@@ -55,6 +57,6 @@ public class AndroidLicensingExtension implements FREExtension
 	*/
 
 		//System.out.println("**** InitializeExtension:dispose");
-		
+        Log.d("license", "dispose");
 	}
 }

@@ -16,6 +16,7 @@ package com.adobe.air.sampleextensions.android.licensing;
 import java.util.HashMap;
 import java.util.Map;
 
+import android.util.Log;
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
 
@@ -32,7 +33,7 @@ public class AndroidLicensingExtensionContext extends FREContext
 
 	@Override
 	public Map<String, FREFunction> getFunctions() {
-
+        Log.d("license", "getFunctions");
 		Map<String, FREFunction> functionMap = new HashMap<String, FREFunction>();
 		functionMap.put("cLNative", new AndroidLicensing() );
 
