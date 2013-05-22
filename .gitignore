@@ -5,6 +5,7 @@
 build
 build/
 
+
 # settings #
 ###################
 .settings
@@ -42,6 +43,10 @@ obj
 **/obj/*.*
 build
 **/build/*.*
+out
+**/out/*.*
+out/
+
 
 
 
