@@ -3,9 +3,16 @@ include 'games:helloworld:modules:core-modules:domain',
 		'games:helloworld:modules:platform-depended:web',
 		'games:helloworld:modules:platform-depended:air',
 		'games:helloworld:modules:platform-depended:apk',
+		'ane',
 		'ane:android-licensing',
 		'ane:flash-licensing-ane-wrapper',
-		'ane:android-helloworld',
-		'ane:android-helloworld-api',
-		'ane:default-helloworld-api',
-		'ane'
+		'ane:helloworld',
+		'ane:helloworld:android-lib',
+		'ane:helloworld:common-api',
+		'ane:helloworld:default-lib',
+		
+		
+		'ane:licensing',
+		'ane:licensing:android-lib',
+		'ane:licensing:common-api',
+		'ane:licensing:default-lib'		

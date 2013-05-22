@@ -1,18 +1,24 @@
-import org.gradlefx.conventions.FlexType
-
-type = 'air'
+type = 'mobile'
 
 frameworkLinkage = "none"
 
 mainClass = 'Activity.as'
 
-air {
-	applicationDescriptor = 'src/main/actionscript/apk.xml'
-	keystore = 'apk.p12'
-	storepass = 'gradlefx'
-	includeFileTrees = [fileTree(dir: 'src/main/actionscript/', include: 'assets/appIcon.png')]
+airMobile {
+	target = 'apk'
+	extensionDir = project(':ane:licensing').buildDir
+	platformSdk = "C:\\develop-tools\\sdk\\android_sdk\\adt-bundle-windows-x86_64-20130219\\sdk"
+	targetDevice = "HT164T402188"
+	air {
+        packageWorkDir "${project.buildDir}"
+		applicationDescriptor = 'src/main/actionscript/apk.xml'
+		keystore = 'apk.p12'
+		storepass = 'apk123'
+		includeFileTrees = [fileTree(dir: 'src/main/actionscript/', include: 'assets/appIcon.png'),
+                            fileTree(dir: buildDir, include : 'apk.swf')]
+	}
 } 
-
+   /*
 tasks.customAdtTask {
 	addArg '-package'
 	addArg '-target'
@@ -41,8 +47,8 @@ tasks.customAdtTask {
             }
         }
     }
-}
-
+}    */
+/*
 task installApp(type:org.gradlefx.tasks.AdtTask) {
     addArgs "-installApp",
             "-platform",
@@ -51,9 +57,10 @@ task installApp(type:org.gradlefx.tasks.AdtTask) {
             "C:\\develop-tools\\sdk\\android_sdk\\adt-bundle-windows-x86_64\\sdk",
             "-device", "HT164T402188",
             "-package", project.file(project.buildDir.name + '/' + flexConvention.output).absolutePath + ".apk"
-}
+}*/
 
 
 dependencies {
 	merged project(':games:helloworld:modules:core-modules:hello-ui')
+	external project(':ane:licensing:default-lib')
 }

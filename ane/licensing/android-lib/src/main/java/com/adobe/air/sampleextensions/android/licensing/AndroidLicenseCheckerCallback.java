@@ -16,7 +16,7 @@ package com.adobe.air.sampleextensions.android.licensing;
 
 import com.adobe.fre.FREContext;
 import com.android.vending.licensing.LicenseCheckerCallback;
-
+import android.util.Log;
 
 /* 
  * LVL after checking with the licensing server and conferring with the policy makes callbacks to communicate  
@@ -46,11 +46,13 @@ public class AndroidLicenseCheckerCallback implements LicenseCheckerCallback{
 
 
 	public void allow() {
+        Log.d("license", "allow");
 		mFREContext.dispatchStatusEventAsync(LICENSED, EMPTY_STRING);
 	}
 
 
 	public void dontAllow() {
+        Log.d("license", "dontAllow");
 		mFREContext.dispatchStatusEventAsync(NOT_LICENSED, EMPTY_STRING);
 	}
 
@@ -60,7 +62,7 @@ public class AndroidLicenseCheckerCallback implements LicenseCheckerCallback{
 
 	@Override
 	public void applicationError(ApplicationErrorCode errorCode) {
-
+        Log.d("license", "applicationError: " + errorCode.name());
 		String errorMessage = EMPTY_STRING;
 
 		switch(errorCode)
