@@ -1,8 +1,9 @@
 ﻿package {
 	
 	import flash.display.MovieClip;
-	
-	//import com.chaoslabgames.helloworld.HelloWorldNative
+import flash.filesystem.File;
+
+//import com.chaoslabgames.helloworld.HelloWorldNative
 	
 	public class Activity extends MovieClip {
 		
@@ -10,13 +11,10 @@
 		
 		public function Activity() {
             display = new HelloWorldDisplay();
+            
             addChild(display);
-            display.appendText("hello");            
-			/*
-			display = new HelloWorldDisplay(); 
-			var wh:HelloWorldNative = new HelloWorldNative();
-			addChild(display);
-			display.appendText(wh.requestHelloWorld());			*/
+            display.appendText("hello");
+            display.appendText("app icon exist: " + File.applicationDirectory.resolvePath('assets/appIcon.png').exists );
 		}
 	}
 	

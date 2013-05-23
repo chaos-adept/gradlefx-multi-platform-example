@@ -1,4 +1,5 @@
 apply plugin: 'gradlefx'
+apply plugin: 'ideafx'
 
 type = 'swc'
 
