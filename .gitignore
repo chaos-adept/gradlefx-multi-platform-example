@@ -18,6 +18,10 @@ build/
 .iml
 *.iml
 **/*.as3proj
+*.ipr
+*.iws
+**/*.ipr
+**/*.iws
 
 #Temp#
 Temp
