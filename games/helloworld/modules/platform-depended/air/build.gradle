@@ -4,6 +4,8 @@ frameworkLinkage = "none"
 
 mainClass = 'Activity.as'
 
+ ['-tools-locale="en"', '-default-background-color=0xCCCCcc']
+
 air {
 		keystore = 'air-single-project.p12'
 		storepass = 'gradlefx'
